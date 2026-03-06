@@ -11,6 +11,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Python 3.11 include distutils (rimosso in 3.12+); necessario per node-gyp / robotjs
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
