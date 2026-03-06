@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Build / output
+noaway/dist/
+*.log
+.DS_Store
+
+# Env e segreti (license-server)
+license-server/.env
+.env
+.env.local
+*.pem
+
+# Altri progetti in workspace (solo noaway + license-server in questa repo)
+website/
+
+# IDE / OS
+.idea/
+*.swp
+*.swo
+Thumbs.db

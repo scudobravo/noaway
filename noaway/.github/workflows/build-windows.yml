@@ -1,0 +1,32 @@
+# Build Windows installer (robotjs richiede compilazione nativa su Windows).
+# Esegui dal tab Actions su GitHub; gli artefatti saranno scaricabili al termine.
+name: Build Windows
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+          cache-dependency-path: noaway/package-lock.json
+
+      - name: Install dependencies
+        working-directory: noaway
+        run: npm ci
+
+      - name: Build Windows
+        working-directory: noaway
+        run: npm run build:win
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: noaway-windows
+          path: noaway/dist/*.exe

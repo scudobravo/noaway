@@ -1,0 +1,33 @@
+{
+  "name": "noaway",
+  "version": "1.0.0",
+  "description": "NoAway - Previene lo status Away (display sveglio, simulazione tastiera)",
+  "main": "main.js",
+  "author": "NoAway",
+  "license": "MIT",
+  "overrides": {
+    "node-abi": "^3.0.0"
+  },
+  "scripts": {
+    "start": "electron .",
+    "rebuild": "electron-rebuild -f -w robotjs",
+    "postinstall": "npm run rebuild",
+    "create-icon": "node scripts/create-tray-icon.js",
+    "build-icons": "node scripts/build-icons.js",
+    "build": "electron-builder",
+    "build:win": "electron-builder --win",
+    "build:mac": "electron-builder --mac",
+    "build:all": "electron-builder -mwl"
+  },
+  "dependencies": {
+    "electron-store": "^8.1.0",
+    "robotjs": "^0.6.0"
+  },
+  "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2",
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1",
+    "electron-rebuild": "^3.2.9",
+    "icon-gen": "^5.0.0"
+  }
+}
