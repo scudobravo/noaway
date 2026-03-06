@@ -1,0 +1,32 @@
+# Build macOS .dmg universal (Intel + Apple Silicon).
+# Actions → Build Mac → Run workflow. Artefatti scaricabili al termine.
+name: Build Mac
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+          cache-dependency-path: noaway/package-lock.json
+
+      - name: Install dependencies
+        working-directory: noaway
+        run: npm ci
+
+      - name: Build Mac (universal .dmg)
+        working-directory: noaway
+        run: npm run build:mac
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: noaway-mac
+          path: noaway/dist/*.dmg

@@ -1,5 +1,5 @@
 # Build Windows installer (robotjs richiede compilazione nativa su Windows).
-# Esegui dal tab Actions su GitHub; gli artefatti saranno scaricabili al termine.
+# Actions → Build Windows → Run workflow. Artefatti scaricabili al termine.
 name: Build Windows
 
 on:

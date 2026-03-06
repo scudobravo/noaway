@@ -4,7 +4,7 @@ App desktop (Electron) che previene lo status Away su Teams/slack tenendo il dis
 
 ## Contenuto repo
 
-- **noaway/** – App Electron (macOS/Windows). Build: vedi `noaway/BUILD.md`.
+- **noaway/** – App Electron (macOS/Windows). Build: vedi `noaway/BUILD.md`. Build automatiche: [GitHub Actions](.github/README.md) (Windows + Mac).
 - **license-server/** – API licenze (Node/Express, Stripe, SQLite). L’app punta a `https://license.noaway.app`; per sviluppo puoi usare `NOAWAY_LICENSE_API_URL` e avviare il server in locale.
 
 ## Setup rapido
